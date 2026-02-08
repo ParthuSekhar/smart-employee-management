@@ -123,7 +123,8 @@ spring.datasource.password=YOUR_DB_PASSWORD
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
-4. Run the Appliocation
+4. Run the Application
+
 Option 1 : using Maven wrapper
 ```bash
 ./mvnw spring-boot:run
