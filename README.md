@@ -18,15 +18,33 @@ A Spring Boot REST API for managing employees with CRUD operations, pagination, 
 - MySQL integration
 
 ## Project Structure
+```text
 src/main/java/com/parthu/smart_employee_management
-├── controller      // REST Controllers
-├── service         // Business logic
-├── repository      // JPA Repositories
-├── entity          // JPA Entities
-├── dto             // Request & Response DTOs
-├── exception       // Custom & global exceptions
-├── config          // Security configuration
+├── config
+│   └── SecurityConfig.java
+├── controller
+│   └── EmployeeController.java
+├── dto
+│   ├── EmployeeRequestDTO.java
+│   └── EmployeeResponseDTO.java
+├── entity
+│   ├── Department.java
+│   ├── Employee.java
+│   └── User.java
+├── exception
+│   ├── DuplicateResourceException.java
+│   ├── GlobalExceptionHandler.java
+│   └── ResourceNotFoundException.java
+├── repository
+│   ├── DepartmentRepository.java
+│   ├── EmployeeRepository.java
+│   └── UserRepository.java
+├── service
+│   ├── EmployeeService.java
+│   └── EmployeeServiceImpl.java
+└── SmartEmployeeManagementApplication.java
 
+8 directories, 16 files
 ---
 
 ##  API Endpoints
