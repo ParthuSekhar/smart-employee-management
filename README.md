@@ -45,6 +45,7 @@ src/main/java/com/parthu/smart_employee_management
 └── SmartEmployeeManagementApplication.java
 
 8 directories, 16 files
+```
 ---
 
 ##  API Endpoints
