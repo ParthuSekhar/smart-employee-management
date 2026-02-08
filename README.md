@@ -80,11 +80,6 @@ src/main/java/com/parthu/smart_employee_management
   "email": "rahul@gmail.com",
   "salary": 50000
 }
----
-
-## 2️⃣ API Endpoints
-This is **very important for recruiters**.
-
 ```
 ---
 
@@ -108,6 +103,45 @@ This is **very important for recruiters**.
 - Custom exceptions:
   - ResourceNotFoundException
   - DuplicateResourceException
+
+ ## How to Run the Project
+
+1. Clone the repository
+```bash
+git clone https://github.com/ParthuSekhar/smart-employee-management.git
+```
+2. Create database in MySQl
+```SQL
+CREATE DATABASE ems_db;
+```
+3. Configure Databse
+```Update src/main/resources/application.properties:
+spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
+spring.datasource.username=YOUR_DB_USERNAME
+spring.datasource.password=YOUR_DB_PASSWORD
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+4. Run the Appliocation
+Option 1 : using Maven wrapper
+```bash
+./mvnw spring-boot:run
+```
+Option 2 : using Maven
+```bash
+mvn spring-boot:run
+```
+5. Verify Application
+```code
+http://localhost:8080
+```
+6. Test APIs
+```Postman
+POST http://localhost:8080/employees
+```
+
+
 
 
 
