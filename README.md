@@ -110,7 +110,7 @@ src/main/java/com/parthu/smart_employee_management
  -> Java 21
  -> Eclipse IDE
  -> MySQl 
- -> Maven (nundled with Eclipse)
+ -> Maven (bundled with Eclipse)
  
  1. Import Project into Eclipse
     1.1 Open Eclipse
