@@ -68,3 +68,47 @@ src/main/java/com/parthu/smart_employee_management
   "email": "rahul@gmail.com",
   "salary": 50000
 }
+```
+---
+
+## Sample Response
+
+```json
+{
+  "id": 1,
+  "name": "Rahul",
+  "email": "rahul@gmail.com",
+  "salary": 50000
+}
+---
+
+## 2️⃣ API Endpoints
+This is **very important for recruiters**.
+
+```
+---
+
+## API Endpoints
+
+| Method | Endpoint              | Description              |
+|------|----------------------|--------------------------|
+| POST | /employees            | Create employee          |
+| GET  | /employees/{id}       | Get employee by ID       |
+| GET  | /employees            | Get all employees        |
+| PUT  | /employees/{id}       | Update employee          |
+| DELETE | /employees/{id}     | Delete employee          |
+
+---
+
+## Validation & Error Handling
+
+- Email must be unique
+- Request body validation using `@Valid`
+- Centralized exception handling using `@RestControllerAdvice`
+- Custom exceptions:
+  - ResourceNotFoundException
+  - DuplicateResourceException
+
+
+
+
