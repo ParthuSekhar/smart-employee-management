@@ -113,19 +113,26 @@ src/main/java/com/parthu/smart_employee_management
  -> Maven (bundled with Eclipse)
  
  1. Import Project into Eclipse
+    
     1.1 Open Eclipse
+    
     1.2 Go to File -> Import
+    
     1.3 Select Existing Maven Project
+    
     1.4 Click next
+    
     1,5 Choose the Folder(e.g: smart-employee-management)
+    
     1.6 Click Finish
+    
 
-2. Configure Database
+3. Configure Database
    ```code
    src/main/resources/application.properties
    ```
    
-3. Update with your MySQl deatils:
+4. Update with your MySQl deatils:
    ```properties:
    spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
    spring.datasource.username=your_username
@@ -133,12 +140,12 @@ src/main/java/com/parthu/smart_employee_management
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
    ```
-4. Create Database in MySql
+5. Create Database in MySql
    ```Sql
    CREATE DATABASE ems_db;
    ```
 
-5. Run the Application
+6. Run the Application
 
    5.1 In Eclipse, navigate to:
    ```code
