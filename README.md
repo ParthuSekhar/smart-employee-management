@@ -7,57 +7,90 @@ A Spring Boot REST API for managing employees with CRUD operations, pagination, 
 - Spring Boot
 - Spring Data JPA
 - Spring Security
+- JWT (JSON web Token)
 - MySQL
 - Maven
 
 ## Features
 - Create, update, delete employees
+- Secure authentication using JWT
 - Pagination & sorting
 - DTO-based request/response
 - Global exception handling
 - MySQL integration
+- Clean layered architeture(Controller-Service-Repository)
 
 ## Project Structure
 ```text
 src/main/java/com/parthu/smart_employee_management
 ├── config
-│   └── SecurityConfig.java
+│   ├── JwtFilter.java
+│   ├── PasswordConfig.java
+│   └── SecurityConfig.java
 ├── controller
-│   └── EmployeeController.java
+│   ├── AuthController.java
+│   └── EmployeeController.java
 ├── dto
-│   ├── EmployeeRequestDTO.java
-│   └── EmployeeResponseDTO.java
+│   ├── AuthRequestDTO.java
+│   ├── AuthResponseDTO.java
+│   ├── EmployeeRequestDTO.java
+│   └── EmployeeResponseDTO.java
 ├── entity
-│   ├── Department.java
-│   ├── Employee.java
-│   └── User.java
+│   ├── Department.java
+│   ├── Employee.java
+│   └── User.java
 ├── exception
-│   ├── DuplicateResourceException.java
-│   ├── GlobalExceptionHandler.java
-│   └── ResourceNotFoundException.java
+│   ├── DuplicateResourceException.java
+│   ├── GlobalExceptionHandler.java
+│   └── ResourceNotFoundException.java
 ├── repository
-│   ├── DepartmentRepository.java
-│   ├── EmployeeRepository.java
-│   └── UserRepository.java
+│   ├── DepartmentRepository.java
+│   ├── EmployeeRepository.java
+│   └── UserRepository.java
+├── security
+│   └── JwtUtil.java
 ├── service
-│   ├── EmployeeService.java
-│   └── EmployeeServiceImpl.java
+│   ├── EmployeeService.java
+│   └── EmployeeServiceImpl.java
 └── SmartEmployeeManagementApplication.java
-
-8 directories, 16 files
 ```
 ---
 
 ##  API Endpoints
 
-### Employee APIs
+### Authentication APIs
+
 | Method | Endpoint | Description |
 |------|---------|------------|
-| POST | /employees | Create employee |
-| GET | /employees | Get all employees (pagination) |
-| GET | /employees/{id} | Get employee by ID |
-| PUT | /employees/{id} | Update employee |
-| DELETE | /employees/{id} | Delete employee |
+| POST | /auth/login | Login & generate JWT Token |
+
+---
+
+## Sample Login Request
+```json
+{
+  "username": "admin",
+  "password": "admin123"
+}
+```
+---
+## Sample Login Response
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9..."
+}
+```
+---
+
+### Employee APIs
+
+| Method | Endpoint              | Description              |
+|------|----------------------|--------------------------|
+| POST | /employees            | Create employee          |
+| GET  | /employees/{id}       | Get employee by ID       |
+| GET  | /employees            | Get all employees        |
+| PUT  | /employees/{id}       | Update employee          |
+| DELETE | /employees/{id}     | Delete employee          |
 
 ---
 
@@ -83,16 +116,10 @@ src/main/java/com/parthu/smart_employee_management
 ```
 ---
 
-## API Endpoints
-
-| Method | Endpoint              | Description              |
-|------|----------------------|--------------------------|
-| POST | /employees            | Create employee          |
-| GET  | /employees/{id}       | Get employee by ID       |
-| GET  | /employees            | Get all employees        |
-| PUT  | /employees/{id}       | Update employee          |
-| DELETE | /employees/{id}     | Delete employee          |
-
+## Pagination & Sorting
+```code
+GET /employees?page=0&size=5&sortBy=name
+```
 ---
 
 ## Validation & Error Handling
@@ -103,6 +130,14 @@ src/main/java/com/parthu/smart_employee_management
 - Custom exceptions:
   - ResourceNotFoundException
   - DuplicateResourceException
+
+Sample Erroe Response
+```json
+{
+  "message": "Employee not found with id 10"
+}
+```
+---
 
  ## How to Run the Project
 
@@ -135,8 +170,8 @@ src/main/java/com/parthu/smart_employee_management
 4. Update with your MySQl deatils:
    ```properties:
    spring.datasource.url=jdbc:mysql://localhost:3306/ems_db
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
+   spring.datasource.username=username
+   spring.datasource.password=password
    spring.jpa.hibernate.ddl-auto=update
    spring.jpa.show-sql=true
    ```
@@ -178,4 +213,17 @@ src/main/java/com/parthu/smart_employee_management
 
    Postman, 
    Swagger Ui
+
+## Architecture
+
+Controller Layer - RESt endpoints
+
+Service Layer - Business logic
+
+Repository Layer - Database access using JPA
+
+DTO Pattern - Clean API contracts
+
+Security Layer - JWT based authentication 
+
      
