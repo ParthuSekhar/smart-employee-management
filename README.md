@@ -26,3 +26,26 @@ src/main/java/com/parthu/smart_employee_management
 ├── dto             // Request & Response DTOs
 ├── exception       // Custom & global exceptions
 ├── config          // Security configuration
+
+---
+
+##  API Endpoints
+
+### Employee APIs
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | /employees | Create employee |
+| GET | /employees | Get all employees (pagination) |
+| GET | /employees/{id} | Get employee by ID |
+| PUT | /employees/{id} | Update employee |
+| DELETE | /employees/{id} | Delete employee |
+
+---
+
+##  Sample Request (Create Employee)
+```json
+{
+  "name": "Rahul",
+  "email": "rahul@gmail.com",
+  "salary": 50000
+}
