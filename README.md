@@ -139,6 +139,7 @@ src/main/java/com/parthu/smart_employee_management
    ```
 
 5. Run the Application
+
    5.1 In Eclipse, navigate to:
    ```code
    src/main/java/com/parthu/smart_employee_management
@@ -148,12 +149,12 @@ src/main/java/com/parthu/smart_employee_management
    5.3 Select
        Run As -> Spring Boot App
 
-6. Verify Application
+7. Verify Application
    ```code
    Tomcat started on port 8080
-  Started SmartEmployeeManagementApplication
-
+  
 7. Access APIs
+   
    ```URL
    https://localhost:8080
    ```
@@ -161,7 +162,8 @@ src/main/java/com/parthu/smart_employee_management
    http://localhost:8080/swagger-ui.html
    ```
 
-8. Test APIs
-   Postman
+9. Test APIs
+
+   Postman, 
    Swagger Ui
      
